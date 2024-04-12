@@ -64,6 +64,8 @@ flutter:
     - assets/images/banana.png
     - assets/images/appleImage.png
     - assets/images/garlic.png
+    - assets/images/pulses.png
+    - assets/images/sack-of-rice.png
     
 
   # An image asset can refer to one or more resolution-specific "variants", see

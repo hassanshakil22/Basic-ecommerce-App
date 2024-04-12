@@ -1,4 +1,5 @@
 import 'package:ecommerce/home_card_view.dart';
+import 'package:ecommerce/home_smallcard_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
@@ -171,6 +172,44 @@ class _HomeViewState extends State<HomeView> {
                                 price: 10.05,
                                 sourceImage: "assets/images/garlic.png",
                                 quantity: "1Kg")
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 5),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              "Groceries",
+                              style: TextStyle(
+                                  fontSize: 25, fontWeight: FontWeight.bold),
+                            ),
+                            TextButton(
+                                onPressed: () {},
+                                child: const Text(
+                                  "See all",
+                                  style: TextStyle(
+                                      color: Color.fromARGB(255, 23, 122, 27)),
+                                ))
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 130,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            SmallCard(
+                                sourceImage: "assets/images/pulses.png",
+                                title: "Pulses"),
+                            SmallCard(
+                                sourceImage: "assets/images/sack-of-rice.png",
+                                title: "Rice"),
                           ],
                         ),
                       )
