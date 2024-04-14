@@ -71,7 +71,13 @@ flutter:
     # ----
     - assets/images/apple card.png
     
-
+    # ----------
+    - assets/images/findproductimages/bakery&snacks.png
+    - assets/images/findproductimages/beverages.png
+    - assets/images/findproductimages/cookingoil.png
+    - assets/images/findproductimages/dairy.png
+    - assets/images/findproductimages/freshfruits&veggies.png
+    - assets/images/findproductimages/meat&fish.png
     
 
   # An image asset can refer to one or more resolution-specific "variants", see
