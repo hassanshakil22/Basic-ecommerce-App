@@ -103,23 +103,33 @@ class _HomeViewState extends State<HomeView> {
                         child: ListView(
                           scrollDirection: Axis.horizontal,
                           children: [
-                            const HomeCards(
+                            HomeCards(
                               price: 4.99,
                               title: "Bananas",
                               sourceImage: "assets/images/banana.png",
                               quantity: "12pcs",
+                              cardImagePath: "assets/images/banana.png",
+                              cardTitle: "Organic Bananas",
+                              productDetail: "",
                             ),
-                            const HomeCards(
+                            HomeCards(
                               price: 5.99,
                               title: "Apples",
                               sourceImage: "assets/images/appleImage.png",
                               quantity: "1kg",
+                              cardImagePath: "assets/images/appleImage.png",
+                              cardTitle: "Natural Red Apples",
+                              productDetail: "",
                             ),
                             HomeCards(
-                                title: "garlic",
-                                price: 10.05,
-                                sourceImage: "assets/images/garlic.png",
-                                quantity: "1Kg")
+                              title: "garlic",
+                              price: 10.05,
+                              sourceImage: "assets/images/garlic.png",
+                              quantity: "1Kg",
+                              cardImagePath: "assets/images/garlic.png",
+                              cardTitle: "Garlic",
+                              productDetail: "",
+                            )
                           ],
                         ),
                       )
@@ -160,18 +170,29 @@ class _HomeViewState extends State<HomeView> {
                               title: "Bananas",
                               sourceImage: "assets/images/banana.png",
                               quantity: "12pcs",
+                              cardImagePath: "",
+                              cardTitle: "Organic  Bananas",
+                              productDetail: "",
                             ),
                             const HomeCards(
                               price: 5.99,
                               title: "Apples",
                               sourceImage: "assets/images/appleImage.png",
                               quantity: "1kg",
+                              cardImagePath: "assets/images/appleImage.png",
+                              cardTitle: "Natural Red Apple",
+                              productDetail:
+                                  "Apples are nutritious. Apples may be good for weight loss. apples may be good for your heart. As part of a healtful and varied diet.",
                             ),
                             HomeCards(
-                                title: "garlic",
-                                price: 10.05,
-                                sourceImage: "assets/images/garlic.png",
-                                quantity: "1Kg")
+                              title: "garlic",
+                              price: 10.05,
+                              sourceImage: "assets/images/garlic.png",
+                              quantity: "1Kg",
+                              cardImagePath: "assets/images/garlic.png",
+                              cardTitle: "Garlic",
+                              productDetail: "",
+                            )
                           ],
                         ),
                       )

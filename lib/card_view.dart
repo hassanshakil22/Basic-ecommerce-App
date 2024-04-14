@@ -1,9 +1,21 @@
-import 'dart:ffi';
 import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter/material.dart';
+import 'package:givestarreviews/givestarreviews.dart';
 
 class CardView extends StatefulWidget {
-  const CardView({super.key});
+  final String imagePath;
+  final String title;
+  final String quantity;
+  final num price;
+  final String productDetail;
+
+  const CardView(
+      {super.key,
+      required this.imagePath,
+      required this.title,
+      required this.quantity,
+      required this.price,
+      required this.productDetail});
 
   @override
   State<CardView> createState() => _CardViewState();
@@ -12,6 +24,9 @@ class CardView extends StatefulWidget {
 class _CardViewState extends State<CardView> {
   bool isExpanded = false;
   bool isFavourite = false;
+  bool isPressedNutrition = false;
+  bool isPressedreview = false;
+  int cardAddition = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,16 +48,16 @@ class _CardViewState extends State<CardView> {
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Image.asset(
-                "assets/images/apple card.png",
+                widget.imagePath,
               ),
             ),
           ),
           Row(
             children: [
-              const Padding(
+              Padding(
                 padding: EdgeInsets.only(left: 15.0),
                 child: Text(
-                  "Natural Red Apple",
+                  widget.title,
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
                 ),
               ),
@@ -62,12 +77,12 @@ class _CardViewState extends State<CardView> {
                         ))
             ],
           ), //title row
-          const Row(
+          Row(
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 15.0),
                 child: Text(
-                  "1kg,Price",
+                  widget.quantity,
                   style: TextStyle(fontWeight: FontWeight.w300),
                 ),
               )
@@ -79,7 +94,12 @@ class _CardViewState extends State<CardView> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      if (cardAddition > 1) {
+                        cardAddition--;
+                        setState(() {});
+                      }
+                    },
                     icon: const Icon(Icons.remove),
                     iconSize: 25,
                   ),
@@ -89,7 +109,7 @@ class _CardViewState extends State<CardView> {
                       height: 50,
                       width: 50,
                       child: Text(
-                        "1",
+                        cardAddition.toString(),
                         style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20),
                       ),
@@ -99,7 +119,10 @@ class _CardViewState extends State<CardView> {
                     ),
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      cardAddition++;
+                      setState(() {});
+                    },
                     icon: const Icon(Icons.add),
                     iconSize: 25,
                   ),
@@ -108,16 +131,16 @@ class _CardViewState extends State<CardView> {
               const Spacer(),
               Container(
                   margin: EdgeInsets.only(right: 8),
-                  child: const Text(
-                    "\$4,99",
+                  child: Text(
+                    "\$${widget.price}",
                     style: const TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 20),
                   )),
             ],
           ), //add to cart icon
-          const Column(
+          Column(
             children: [
-              Row(
+              const Row(
                 children: [
                   Padding(
                     padding: EdgeInsets.all(10.0),
@@ -129,10 +152,10 @@ class _CardViewState extends State<CardView> {
                   ),
                 ],
               ),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10.0),
                 child: ExpandableText(
-                  "Apples are nutritious. Apples may be good for weight loss. apples may be good for your heart. As part of a healtful and varied diet.",
+                  widget.productDetail,
                   expandText: "read more",
                   collapseText: "show Less",
                 ),
@@ -140,6 +163,79 @@ class _CardViewState extends State<CardView> {
             ],
           ) //product detail column
           ,
+          SizedBox(
+            height: 2,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    const Text(
+                      "Nutrition",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    ),
+                    Spacer(),
+                    const Text(
+                      "100gr",
+                      style:
+                          TextStyle(fontWeight: FontWeight.w300, fontSize: 10),
+                    ),
+                    IconButton(
+                        onPressed: () {
+                          isPressedNutrition = !isPressedNutrition;
+
+                          setState(() {});
+                        },
+                        icon: isPressedNutrition
+                            ? Icon(Icons.arrow_back_ios_new)
+                            : Icon(Icons.arrow_forward_ios))
+                  ],
+                ), //nutrition
+                Row(
+                  children: [
+                    const Text(
+                      "Review",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    ),
+                    Spacer(),
+                    StarRating(
+                      onChanged: (rate) {},
+                    ),
+                    IconButton(
+                        onPressed: () {
+                          isPressedreview = !isPressedreview;
+
+                          setState(() {});
+                        },
+                        icon: isPressedreview
+                            ? Icon(Icons.arrow_back_ios_new)
+                            : Icon(Icons.arrow_forward_ios))
+                  ],
+                )
+              ],
+            ),
+          ), //   nutrition/review column
+          FloatingActionButton.extended(
+            onPressed: () {},
+            backgroundColor: Color.fromARGB(200, 83, 177, 117),
+            label: Container(
+              width: 250,
+              child: Center(
+                child: const Text(
+                  "Add to Basket",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+            ),
+            elevation: 0,
+          )
         ],
       ), //main body column
     );

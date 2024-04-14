@@ -6,13 +6,21 @@ class HomeCards extends StatefulWidget {
   final String quantity;
   final num price;
   final String sourceImage;
+// ------------------
+// cardview parameters (extra ones)
+  final String cardImagePath;
+  final String cardTitle;
+  final String productDetail;
 
   const HomeCards(
       {super.key,
       required this.title,
       required this.price,
       required this.sourceImage,
-      required this.quantity});
+      required this.quantity,
+      required this.cardImagePath,
+      required this.cardTitle,
+      required this.productDetail});
   @override
   State<HomeCards> createState() => _HomeCardsState();
 }
@@ -23,7 +31,15 @@ class _HomeCardsState extends State<HomeCards> {
     return GestureDetector(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => CardView()));
+            context,
+            MaterialPageRoute(
+                builder: (context) => CardView(
+                      imagePath: widget.cardImagePath,
+                      price: widget.price,
+                      productDetail: widget.productDetail,
+                      quantity: widget.quantity,
+                      title: widget.cardTitle,
+                    )));
       },
       child: Card(
         color: Colors.white,
