@@ -1,6 +1,5 @@
 import 'package:ecommerce/bottom_navigation_bar.dart';
 import 'package:ecommerce/data.dart';
-
 import 'package:ecommerce/home_card.dart';
 import 'package:ecommerce/home_smallcard.dart';
 import 'package:flutter/material.dart';
@@ -103,37 +102,17 @@ class _HomeViewState extends State<HomeView> {
                       const SizedBox(height: 5),
                       SizedBox(
                         height: 250,
-                        child: ListView(
+                        child: ListView.builder(
                           scrollDirection: Axis.horizontal,
-                          children: [
-                            HomeCards(
-                              price: 4.99,
-                              title: "Bananas",
-                              sourceImage: "assets/images/banana.png",
-                              quantity: "12pcs",
-                              cardImagePath: "assets/images/banana.png",
-                              cardTitle: "Organic Bananas",
-                              productDetail: "",
-                            ),
-                            HomeCards(
-                              price: 5.99,
-                              title: "Apples",
-                              sourceImage: "assets/images/appleImage.png",
-                              quantity: "1kg",
-                              cardImagePath: "assets/images/appleImage.png",
-                              cardTitle: "Natural Red Apples",
-                              productDetail: "",
-                            ),
-                            HomeCards(
-                              title: "garlic",
-                              price: 10.05,
-                              sourceImage: "assets/images/garlic.png",
-                              quantity: "1Kg",
-                              cardImagePath: "assets/images/garlic.png",
-                              cardTitle: "Garlic",
-                              productDetail: "",
-                            )
-                          ],
+                          itemCount: products.length,
+                          itemBuilder: (context, index) => HomeCards(
+                              id: products[index]["id"],
+                              title: products[index]["name"],
+                              price: products[index]["price"],
+                              sourceImage: products[index]["imagesrc"],
+                              quantity: products[index]["quantity"],
+                              cardTitle: products[index]["Bara_name"],
+                              productDetail: products[index]["description"]),
                         ),
                       )
                     ],
@@ -165,38 +144,17 @@ class _HomeViewState extends State<HomeView> {
                       const SizedBox(height: 5),
                       SizedBox(
                         height: 250,
-                        child: ListView(
+                        child: ListView.builder(
+                          itemCount: products.length,
                           scrollDirection: Axis.horizontal,
-                          children: [
-                            const HomeCards(
-                              price: 4.99,
-                              title: "Bananas",
-                              sourceImage: "assets/images/banana.png",
-                              quantity: "12pcs",
-                              cardImagePath: "",
-                              cardTitle: "Organic  Bananas",
-                              productDetail: "assets/images/banana.png",
-                            ),
-                            const HomeCards(
-                              price: 5.99,
-                              title: "Apples",
-                              sourceImage: "assets/images/appleImage.png",
-                              quantity: "1kg",
-                              cardImagePath: "assets/images/appleImage.png",
-                              cardTitle: "Natural Red Apple",
-                              productDetail:
-                                  "Apples are nutritious. Apples may be good for weight loss. apples may be good for your heart. As part of a healtful and varied diet.",
-                            ),
-                            HomeCards(
-                              title: "garlic",
-                              price: 10.05,
-                              sourceImage: "assets/images/garlic.png",
-                              quantity: "1Kg",
-                              cardImagePath: "assets/images/garlic.png",
-                              cardTitle: "Garlic",
-                              productDetail: "",
-                            )
-                          ],
+                          itemBuilder: (context, index) => HomeCards(
+                              id: products[index]["id"],
+                              title: products[index]["name"],
+                              price: products[index]["price"],
+                              sourceImage: products[index]["imagesrc"],
+                              quantity: products[index]["quantity"],
+                              cardTitle: products[index]["Bara_name"],
+                              productDetail: products[index]["description"]),
                         ),
                       )
                     ],

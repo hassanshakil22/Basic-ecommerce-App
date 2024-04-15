@@ -2,13 +2,14 @@ import 'package:ecommerce/screens/card_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeCards extends StatefulWidget {
+  final int id;
   final String title;
   final String quantity;
   final num price;
   final String sourceImage;
 // ------------------
 // cardview parameters (extra ones)
-  final String cardImagePath;
+
   final String cardTitle;
   final String productDetail;
 
@@ -18,9 +19,9 @@ class HomeCards extends StatefulWidget {
       required this.price,
       required this.sourceImage,
       required this.quantity,
-      required this.cardImagePath,
       required this.cardTitle,
-      required this.productDetail});
+      required this.productDetail,
+      required this.id});
   @override
   State<HomeCards> createState() => _HomeCardsState();
 }
@@ -34,7 +35,8 @@ class _HomeCardsState extends State<HomeCards> {
             context,
             MaterialPageRoute(
                 builder: (context) => CardView(
-                      imagePath: widget.cardImagePath,
+                      id: widget.id,
+                      imagePath: widget.sourceImage,
                       price: widget.price,
                       productDetail: widget.productDetail,
                       quantity: widget.quantity,

@@ -1,3 +1,4 @@
+import 'package:ecommerce/bottom_navigation_bar.dart';
 import 'package:ecommerce/find_products_card.dart';
 import 'package:flutter/material.dart';
 
@@ -100,7 +101,8 @@ class FindProductsView extends StatelessWidget {
                 ],
               ),
             ), //scrollable column
-          ))
+          )),
+          BottomNavigationbar()
         ],
       ), //main body column
     );

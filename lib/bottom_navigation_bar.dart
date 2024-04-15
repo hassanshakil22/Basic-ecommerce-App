@@ -1,5 +1,6 @@
 import 'package:ecommerce/screens/cart_view.dart';
 import 'package:ecommerce/screens/find_products_view.dart';
+import 'package:ecommerce/screens/home_view.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigationbar extends StatefulWidget {
@@ -16,7 +17,10 @@ class _BottomNavigationbarState extends State<BottomNavigationbar> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => HomeView()));
+          },
           style: ElevatedButton.styleFrom(elevation: 0),
           child: const Icon(
             Icons.home_outlined,
