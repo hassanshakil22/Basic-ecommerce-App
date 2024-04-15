@@ -1,5 +1,6 @@
-import 'package:ecommerce/cart_view.dart';
-import 'package:ecommerce/find_products_view.dart';
+import 'package:ecommerce/bottom_navigation_bar.dart';
+import 'package:ecommerce/data.dart';
+
 import 'package:ecommerce/home_card.dart';
 import 'package:ecommerce/home_smallcard.dart';
 import 'package:flutter/material.dart';
@@ -174,7 +175,7 @@ class _HomeViewState extends State<HomeView> {
                               quantity: "12pcs",
                               cardImagePath: "",
                               cardTitle: "Organic  Bananas",
-                              productDetail: "",
+                              productDetail: "assets/images/banana.png",
                             ),
                             const HomeCards(
                               price: 5.99,
@@ -242,69 +243,7 @@ class _HomeViewState extends State<HomeView> {
               ),
             ),
           ), //scrollable content
-          SizedBox(
-            height: 60,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(elevation: 0),
-                  child: const Icon(
-                    Icons.home_outlined,
-                    size: 30,
-                    color: Colors.black,
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => FindProductsView()));
-                  },
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                  ),
-                  child: const Icon(
-                    Icons.manage_search_rounded,
-                    size: 30,
-                    color: Colors.black,
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Cart()));
-                  },
-                  style: ElevatedButton.styleFrom(elevation: 0),
-                  child: const Icon(
-                    Icons.shopping_cart_outlined,
-                    size: 30,
-                    color: Colors.black,
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(elevation: 0),
-                  child: Icon(
-                    Icons.favorite_border_outlined,
-                    size: 30,
-                    color: Colors.black,
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(elevation: 0),
-                  child: const Icon(
-                    Icons.account_circle_outlined,
-                    size: 30,
-                    color: Colors.black,
-                  ),
-                ),
-              ],
-            ),
-          )
+          SizedBox(height: 60, child: BottomNavigationbar())
         ],
       ), //body parent column
     );

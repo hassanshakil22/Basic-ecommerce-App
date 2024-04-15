@@ -116,6 +116,5 @@ class _CartCardState extends State<CartCard> {
         ), //main row
       ), //main container
     );
-    ;
   }
 }

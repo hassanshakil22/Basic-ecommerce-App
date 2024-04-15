@@ -1,4 +1,4 @@
-import 'package:ecommerce/card_view.dart';
+import 'package:ecommerce/screens/card_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeCards extends StatefulWidget {
