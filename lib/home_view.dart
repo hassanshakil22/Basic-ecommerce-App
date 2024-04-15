@@ -1,3 +1,4 @@
+import 'package:ecommerce/cart_view.dart';
 import 'package:ecommerce/find_products_view.dart';
 import 'package:ecommerce/home_card.dart';
 import 'package:ecommerce/home_smallcard.dart';
@@ -272,7 +273,10 @@ class _HomeViewState extends State<HomeView> {
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Cart()));
+                  },
                   style: ElevatedButton.styleFrom(elevation: 0),
                   child: const Icon(
                     Icons.shopping_cart_outlined,
