@@ -11,7 +11,7 @@ class FindProductsView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(
+        title: const Text(
           "Find Products",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),

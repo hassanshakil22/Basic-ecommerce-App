@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter/material.dart';
 import 'package:givestarreviews/givestarreviews.dart';
@@ -11,9 +13,7 @@ class CardView extends StatefulWidget {
   final String quantity;
   final num price;
   final String productDetail;
-
-//  final List<Map<String, dynamic>> products; // Pass products list
-//   final List<Map<String, dynamic>> favourites; // Pass favourites listfinal List<map> prod
+  final int index;
 
   const CardView({
     super.key,
@@ -23,7 +23,7 @@ class CardView extends StatefulWidget {
     required this.price,
     required this.productDetail,
     required this.id,
-    //  required this.products, required this.favourites
+    required this.index,
   });
 
   @override
@@ -74,10 +74,21 @@ class _CardViewState extends State<CardView> {
               const Spacer(),
               IconButton(
                   onPressed: () {
-                    isFavourite = !isFavourite;
-                    // if () {
+                    // isFavourite = !isFavourite;
 
-                    // }
+                    if (products[widget.index]["is_favourite"] == false) {
+                      favourites.add(products[widget.index]);
+                      isFavourite = true;
+                      products[widget.index]["is_favourite"] = true;
+                    } else {
+                      // products[widget.index]["is_favourite"] = false ;
+                      favourites.remove(products[widget.index]);
+                      isFavourite = false;
+
+                      products[widget.index]["is_favourite"] = false;
+                    }
+                    print(favourites);
+                    print(products);
                     setState(() {});
                   },
                   icon: isFavourite

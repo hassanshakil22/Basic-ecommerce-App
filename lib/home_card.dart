@@ -7,6 +7,7 @@ class HomeCards extends StatefulWidget {
   final String quantity;
   final num price;
   final String sourceImage;
+  final int index;
 // ------------------
 // cardview parameters (extra ones)
 
@@ -21,7 +22,8 @@ class HomeCards extends StatefulWidget {
       required this.quantity,
       required this.cardTitle,
       required this.productDetail,
-      required this.id});
+      required this.id,
+      required this.index});
   @override
   State<HomeCards> createState() => _HomeCardsState();
 }
@@ -41,6 +43,7 @@ class _HomeCardsState extends State<HomeCards> {
                       productDetail: widget.productDetail,
                       quantity: widget.quantity,
                       title: widget.cardTitle,
+                      index: widget.index,
                     )));
       },
       child: Card(
