@@ -1,3 +1,4 @@
+import 'package:ecommerce/data.dart';
 import 'package:ecommerce/widgets/bottom_navigation_bar.dart';
 
 import 'package:ecommerce/widgets/cart_card.dart';
@@ -22,13 +23,17 @@ class _CartState extends State<Cart> {
         children: [
           Expanded(
             child: ListView.builder(
-              itemCount: 5,
+              itemCount: cart.length,
               itemBuilder: (context, index) {
                 return CartCard(
-                    title: "organic Bananas",
-                    quantity: "12pcs,price",
-                    imgPath: "assets/images/banana.png",
-                    price: 4.99);
+                    index: index,
+                    id: cart[index]["id"],
+                    productdetail: cart[index]["description"],
+                    baraname: cart[index]["Bara_name"],
+                    title: cart[index]["name"],
+                    quantity: cart[index]["quantity"],
+                    imgPath: cart[index]["imagesrc"],
+                    price: cart[index]["price"]);
               },
             ),
           ),

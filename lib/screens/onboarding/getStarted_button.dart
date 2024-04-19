@@ -23,8 +23,8 @@ class _GetStartedState extends State<GetStarted> {
         },
         backgroundColor: Color.fromARGB(200, 83, 177, 117),
         label: Container(
-          child: Center(
-            child: const Text(
+          child: const Center(
+            child: Text(
               "Get started",
               style: TextStyle(
                 color: Colors.white,
@@ -36,6 +36,5 @@ class _GetStartedState extends State<GetStarted> {
         elevation: 0,
       ),
     );
-    ;
   }
 }

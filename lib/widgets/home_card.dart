@@ -1,3 +1,4 @@
+import 'package:ecommerce/data.dart';
 import 'package:ecommerce/screens/card_view.dart';
 import 'package:flutter/material.dart';
 
@@ -85,7 +86,10 @@ class _HomeCardsState extends State<HomeCards> {
                           fontWeight: FontWeight.bold, fontSize: 20),
                     ),
                     ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          cart.add(products[widget.index]);
+                          print(cart);
+                        },
                         child: const Icon(Icons.add),
                         style: ElevatedButton.styleFrom(
                           backgroundColor:

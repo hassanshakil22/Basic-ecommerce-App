@@ -1,9 +1,6 @@
-import 'dart:ffi';
-
 import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter/material.dart';
 import 'package:givestarreviews/givestarreviews.dart';
-import 'package:ecommerce/data.dart';
 import 'package:ecommerce/data.dart';
 
 class CardView extends StatefulWidget {
@@ -87,8 +84,6 @@ class _CardViewState extends State<CardView> {
 
                       products[widget.index]["is_favourite"] = false;
                     }
-                    print(favourites);
-                    print(products);
                     setState(() {});
                   },
                   icon: isFavourite

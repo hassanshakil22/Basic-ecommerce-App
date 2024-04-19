@@ -1,4 +1,3 @@
-import 'package:ecommerce/data.dart';
 import 'package:ecommerce/screens/cart_view.dart';
 import 'package:ecommerce/screens/favourite_view.dart';
 import 'package:ecommerce/screens/find_products_view.dart';
