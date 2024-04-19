@@ -1,7 +1,7 @@
 import 'package:ecommerce/widgets/bottom_navigation_bar.dart';
 import 'package:ecommerce/data.dart';
-import 'package:ecommerce/home_card.dart';
-import 'package:ecommerce/home_smallcard.dart';
+import 'package:ecommerce/widgets/home_card.dart';
+import 'package:ecommerce/widgets/home_smallcard.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {

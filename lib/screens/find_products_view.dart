@@ -1,5 +1,5 @@
 import 'package:ecommerce/widgets/bottom_navigation_bar.dart';
-import 'package:ecommerce/find_products_card.dart';
+import 'package:ecommerce/widgets/find_products_card.dart';
 import 'package:flutter/material.dart';
 
 class FindProductsView extends StatelessWidget {

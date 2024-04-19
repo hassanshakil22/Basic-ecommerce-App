@@ -1,6 +1,6 @@
 import 'package:ecommerce/widgets/bottom_navigation_bar.dart';
 
-import 'package:ecommerce/cart_card.dart';
+import 'package:ecommerce/widgets/cart_card.dart';
 import 'package:flutter/material.dart';
 
 class Cart extends StatefulWidget {
