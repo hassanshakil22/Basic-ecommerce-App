@@ -32,6 +32,17 @@ List<Map<String, dynamic>> products = [
   },
 ];
 
-List<Map<String, dynamic>> favourites = [];
+List<Map<String, dynamic>> favourites = [
+  {
+    "id": 003,
+    "name": "Garlic",
+    "Bara_name": "Hand Picked Garlic",
+    "price": 10.99,
+    "quantity": "1kg",
+    "imagesrc": "assets/images/garlic.png",
+    "description": "",
+    "is_favourite": false
+  },
+];
 
 List<Map<String, dynamic>> cart = [];
