@@ -1,3 +1,4 @@
+import 'package:toast/toast.dart';
 import 'package:ecommerce/data.dart';
 import 'package:ecommerce/screens/card_view.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +26,7 @@ class HomeCards extends StatefulWidget {
       required this.productDetail,
       required this.id,
       required this.index});
+
   @override
   State<HomeCards> createState() => _HomeCardsState();
 }
@@ -32,6 +34,7 @@ class HomeCards extends StatefulWidget {
 class _HomeCardsState extends State<HomeCards> {
   @override
   Widget build(BuildContext context) {
+    ToastContext().init(context);
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -87,8 +90,23 @@ class _HomeCardsState extends State<HomeCards> {
                     ),
                     ElevatedButton(
                         onPressed: () {
-                          cart.add(products[widget.index]);
-                          print(cart);
+                          if (cart.any(
+                              (element) => element == products[widget.index])) {
+                            Toast.show(
+                              "already Added to Cart",
+                              duration: Toast.lengthShort,
+                              gravity: Toast.bottom,
+                            );
+                          } else {
+                            cart.add(products[widget.index]);
+
+                            Toast.show(
+                              "Added to Cart",
+                              duration: Toast.lengthShort,
+                              gravity: Toast.bottom,
+                            );
+                            print(cart);
+                          }
                         },
                         child: const Icon(Icons.add),
                         style: ElevatedButton.styleFrom(

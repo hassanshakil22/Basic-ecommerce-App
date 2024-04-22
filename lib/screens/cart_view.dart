@@ -26,14 +26,15 @@ class _CartState extends State<Cart> {
               itemCount: cart.length,
               itemBuilder: (context, index) {
                 return CartCard(
-                    index: index,
-                    id: cart[index]["id"],
-                    productdetail: cart[index]["description"],
-                    baraname: cart[index]["Bara_name"],
-                    title: cart[index]["name"],
-                    quantity: cart[index]["quantity"],
-                    imgPath: cart[index]["imagesrc"],
-                    price: cart[index]["price"]);
+                  index: index,
+                  id: cart[index]["id"],
+                  productdetail: cart[index]["description"],
+                  baraname: cart[index]["Bara_name"],
+                  title: cart[index]["name"],
+                  quantity: cart[index]["quantity"],
+                  imgPath: cart[index]["imagesrc"],
+                  price: cart[index]["price"],
+                );
               },
             ),
           ),

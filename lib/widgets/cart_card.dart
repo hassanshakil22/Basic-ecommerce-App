@@ -1,3 +1,4 @@
+import 'package:ecommerce/data.dart';
 import 'package:ecommerce/screens/card_view.dart';
 import 'package:flutter/material.dart';
 
@@ -11,16 +12,17 @@ class CartCard extends StatefulWidget {
   final int id;
   final int index;
 
-  const CartCard(
-      {super.key,
-      required this.title,
-      required this.quantity,
-      required this.imgPath,
-      required this.price,
-      required this.baraname,
-      required this.productdetail,
-      required this.id,
-      required this.index});
+  const CartCard({
+    super.key,
+    required this.title,
+    required this.quantity,
+    required this.imgPath,
+    required this.price,
+    required this.baraname,
+    required this.productdetail,
+    required this.id,
+    required this.index,
+  });
 
   @override
   State<CartCard> createState() => _CartCardState();
@@ -121,7 +123,13 @@ class _CartCardState extends State<CartCard> {
               Column(
                 children: [
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          cart.removeAt(widget.index);
+                          print(cart);
+                        });
+                        ;
+                      },
                       icon: const Icon(
                         Icons.close,
                         color: Colors.grey,

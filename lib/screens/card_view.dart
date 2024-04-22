@@ -1,3 +1,4 @@
+import 'package:toast/toast.dart';
 import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter/material.dart';
 import 'package:givestarreviews/givestarreviews.dart';
@@ -86,7 +87,7 @@ class _CardViewState extends State<CardView> {
                     }
                     setState(() {});
                   },
-                  icon: isFavourite
+                  icon: products[widget.index]["is_favourite"]
                       ? const Icon(
                           Icons.favorite,
                           color: Colors.red,
@@ -239,7 +240,24 @@ class _CardViewState extends State<CardView> {
             ),
           ), //   nutrition/review column
           FloatingActionButton.extended(
-            onPressed: () {},
+            onPressed: () {
+              if (cart.any((element) => element == products[widget.index])) {
+                Toast.show(
+                  "already Added to Cart",
+                  duration: Toast.lengthShort,
+                  gravity: Toast.bottom,
+                );
+              } else {
+                cart.add(products[widget.index]);
+
+                Toast.show(
+                  "Added to Cart",
+                  duration: Toast.lengthShort,
+                  gravity: Toast.bottom,
+                );
+                print(cart);
+              }
+            },
             backgroundColor: Color.fromARGB(200, 83, 177, 117),
             label: Container(
               width: 250,
