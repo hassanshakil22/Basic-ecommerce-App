@@ -28,22 +28,24 @@ class _CartState extends State<Cart> {
       body: Column(
         children: [
           Expanded(
-            child: ListView.builder(
-              itemCount: cart.length,
-              itemBuilder: (context, index) {
-                return CartCard(
-                  index: index,
-                  id: cart[index]["id"],
-                  productdetail: cart[index]["description"],
-                  baraname: cart[index]["Bara_name"],
-                  title: cart[index]["name"],
-                  quantity: cart[index]["quantity"],
-                  imgPath: cart[index]["imagesrc"],
-                  price: cart[index]["price"],
-                  removeItem: _removeItem,
-                );
-              },
-            ),
+            child: cart.isEmpty
+                ? const Center(child: Text("No Items in Cart"))
+                : ListView.builder(
+                    itemCount: cart.length,
+                    itemBuilder: (context, index) {
+                      return CartCard(
+                        index: index,
+                        id: cart[index]["id"],
+                        productdetail: cart[index]["description"],
+                        baraname: cart[index]["Bara_name"],
+                        title: cart[index]["name"],
+                        quantity: cart[index]["quantity"],
+                        imgPath: cart[index]["imagesrc"],
+                        price: cart[index]["price"],
+                        removeItem: _removeItem,
+                      );
+                    },
+                  ),
           ),
           BottomNavigationbar(),
         ],

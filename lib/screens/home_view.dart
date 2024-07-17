@@ -1,3 +1,4 @@
+import 'package:ecommerce/screens/find_products_view.dart';
 import 'package:ecommerce/widgets/bottom_navigation_bar.dart';
 import 'package:ecommerce/data.dart';
 import 'package:ecommerce/widgets/home_card.dart';
@@ -38,11 +39,13 @@ class _HomeViewState extends State<HomeView> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
+              onTap: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => FindProductsView())),
               controller: searchFieldController,
               decoration: const InputDecoration(
                   icon: Icon(Icons.search),
                   border: InputBorder.none,
-                  hintText: "Search store"),
+                  hintText: "Search products"),
             ),
           ),
           Expanded(

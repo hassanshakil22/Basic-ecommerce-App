@@ -8,7 +8,8 @@ List<Map<String, dynamic>> products = [
     "imagesrc": "assets/images/appleImage.png",
     "description":
         "Apples are nutritious. Apples may be good for weight loss. apples may be good for your heart. As part of a healtful and varied diet.",
-    "is_favourite": false
+    "is_favourite": false,
+    "selected": 0
   },
   {
     "id": 002,
@@ -18,7 +19,8 @@ List<Map<String, dynamic>> products = [
     "quantity": "12pcs",
     "imagesrc": "assets/images/banana.png",
     "description": "",
-    "is_favourite": false
+    "is_favourite": false,
+    "selected": 0
   },
   {
     "id": 003,
@@ -28,7 +30,8 @@ List<Map<String, dynamic>> products = [
     "quantity": "1kg",
     "imagesrc": "assets/images/garlic.png",
     "description": "",
-    "is_favourite": false
+    "is_favourite": false,
+    "selected": 0
   },
 ];
 
