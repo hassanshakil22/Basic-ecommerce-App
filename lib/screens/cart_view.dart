@@ -12,6 +12,12 @@ class Cart extends StatefulWidget {
 }
 
 class _CartState extends State<Cart> {
+  void _removeItem(int index) {
+    setState(() {
+      cart.removeAt(index);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,6 +40,7 @@ class _CartState extends State<Cart> {
                   quantity: cart[index]["quantity"],
                   imgPath: cart[index]["imagesrc"],
                   price: cart[index]["price"],
+                  removeItem: _removeItem,
                 );
               },
             ),

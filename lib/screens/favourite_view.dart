@@ -86,7 +86,10 @@ class _FavouriteViewState extends State<FavouriteView> {
                               IconButton(
                                   onPressed: () {
                                     favourites.removeAt(index);
+                                    products[index]["is_favourite"] = false;
+
                                     print(favourites);
+
                                     setState(() {});
                                   },
                                   icon: Icon(Icons.close))

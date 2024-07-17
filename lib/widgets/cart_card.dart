@@ -11,7 +11,7 @@ class CartCard extends StatefulWidget {
   final String productdetail;
   final int id;
   final int index;
-
+  final Function(int) removeItem;
   const CartCard({
     super.key,
     required this.title,
@@ -22,6 +22,7 @@ class CartCard extends StatefulWidget {
     required this.productdetail,
     required this.id,
     required this.index,
+    required this.removeItem,
   });
 
   @override
@@ -124,11 +125,8 @@ class _CartCardState extends State<CartCard> {
                 children: [
                   IconButton(
                       onPressed: () {
-                        setState(() {
-                          cart.removeAt(widget.index);
-                          print(cart);
-                        });
-                        ;
+                        widget.removeItem(widget.index);
+                        setState(() {});
                       },
                       icon: const Icon(
                         Icons.close,

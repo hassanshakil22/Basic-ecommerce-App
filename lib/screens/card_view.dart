@@ -63,10 +63,11 @@ class _CardViewState extends State<CardView> {
           Row(
             children: [
               Padding(
-                padding: EdgeInsets.only(left: 15.0),
+                padding: const EdgeInsets.only(left: 15.0),
                 child: Text(
                   widget.title,
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
+                  style: const TextStyle(
+                      fontSize: 30, fontWeight: FontWeight.w500),
                 ),
               ),
               const Spacer(),
@@ -79,7 +80,6 @@ class _CardViewState extends State<CardView> {
                       isFavourite = true;
                       products[widget.index]["is_favourite"] = true;
                     } else {
-                      //
                       favourites.remove(products[widget.index]);
                       isFavourite = false;
 
@@ -103,7 +103,7 @@ class _CardViewState extends State<CardView> {
                 padding: const EdgeInsets.only(left: 15.0),
                 child: Text(
                   widget.quantity,
-                  style: TextStyle(fontWeight: FontWeight.w300),
+                  style: const TextStyle(fontWeight: FontWeight.w300),
                 ),
               )
             ],
@@ -150,7 +150,7 @@ class _CardViewState extends State<CardView> {
               ),
               const Spacer(),
               Container(
-                  margin: EdgeInsets.only(right: 8),
+                  margin: const EdgeInsets.only(right: 8),
                   child: Text(
                     "\$${widget.price}",
                     style: const TextStyle(
@@ -173,7 +173,7 @@ class _CardViewState extends State<CardView> {
                 ],
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10.0),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: ExpandableText(
                   widget.productDetail,
                   expandText: "read more",
@@ -183,7 +183,7 @@ class _CardViewState extends State<CardView> {
             ],
           ) //product detail column
           ,
-          SizedBox(
+          const SizedBox(
             height: 2,
           ),
           Padding(
@@ -197,7 +197,7 @@ class _CardViewState extends State<CardView> {
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     const Text(
                       "100gr",
                       style:
@@ -210,8 +210,8 @@ class _CardViewState extends State<CardView> {
                           setState(() {});
                         },
                         icon: isPressedNutrition
-                            ? Icon(Icons.arrow_back_ios_new)
-                            : Icon(Icons.arrow_forward_ios))
+                            ? const Icon(Icons.arrow_back_ios_new)
+                            : const Icon(Icons.arrow_forward_ios))
                   ],
                 ), //nutrition
                 Row(
@@ -221,7 +221,7 @@ class _CardViewState extends State<CardView> {
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     StarRating(
                       onChanged: (rate) {},
                     ),
@@ -232,8 +232,8 @@ class _CardViewState extends State<CardView> {
                           setState(() {});
                         },
                         icon: isPressedreview
-                            ? Icon(Icons.arrow_back_ios_new)
-                            : Icon(Icons.arrow_forward_ios))
+                            ? const Icon(Icons.arrow_back_ios_new)
+                            : const Icon(Icons.arrow_forward_ios))
                   ],
                 )
               ],
@@ -258,11 +258,11 @@ class _CardViewState extends State<CardView> {
                 print(cart);
               }
             },
-            backgroundColor: Color.fromARGB(200, 83, 177, 117),
+            backgroundColor: const Color.fromARGB(200, 83, 177, 117),
             label: Container(
               width: 250,
-              child: Center(
-                child: const Text(
+              child: const Center(
+                child: Text(
                   "Add to Basket",
                   style: TextStyle(
                     color: Colors.white,
