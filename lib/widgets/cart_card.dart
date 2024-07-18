@@ -30,25 +30,30 @@ class CartCard extends StatefulWidget {
 }
 
 class _CartCardState extends State<CartCard> {
-  int cardAddition = 1;
-
   @override
   Widget build(BuildContext context) {
+    int cardAddition = products[widget.index]['selected'];
+
     return Card(
       child: GestureDetector(
-        onTap: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: ((context) => CardView(
-                        imagePath: widget.imgPath,
-                        title: widget.baraname,
-                        quantity: widget.quantity,
-                        price: widget.price,
-                        productDetail: widget.productdetail,
-                        id: widget.id,
-                        index: widget.index,
-                      ))));
+        onTap: () async {
+          final updatedIndex = await Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: ((context) => CardView(
+                    imagePath: widget.imgPath,
+                    title: widget.baraname,
+                    quantity: widget.quantity,
+                    price: widget.price,
+                    productDetail: widget.productdetail,
+                    id: widget.id,
+                    index: widget.index,
+                  )),
+            ),
+          );
+          if (updatedIndex != null) {
+            setState(() {});
+          }
         },
         child: Container(
           height: 130,
@@ -79,8 +84,11 @@ class _CartCardState extends State<CartCard> {
                         IconButton(
                           onPressed: () {
                             if (cardAddition > 1) {
-                              cardAddition--;
-                              setState(() {});
+                              setState(() {
+                                cardAddition--;
+                                products[widget.index]['selected'] =
+                                    cardAddition;
+                              });
                             }
                           },
                           icon: const Icon(Icons.remove),
@@ -106,8 +114,10 @@ class _CartCardState extends State<CartCard> {
                         ),
                         IconButton(
                           onPressed: () {
-                            cardAddition++;
-                            setState(() {});
+                            setState(() {
+                              cardAddition++;
+                              products[widget.index]['selected'] = cardAddition;
+                            });
                           },
                           icon: const Icon(
                             Icons.add,
@@ -125,8 +135,10 @@ class _CartCardState extends State<CartCard> {
                 children: [
                   IconButton(
                       onPressed: () {
-                        widget.removeItem(widget.index);
-                        setState(() {});
+                        setState(() {
+                          widget.removeItem(widget.index);
+                          products[widget.index]['selected'] = 0;
+                        });
                       },
                       icon: const Icon(
                         Icons.close,

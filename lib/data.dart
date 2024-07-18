@@ -29,7 +29,32 @@ List<Map<String, dynamic>> products = [
     "price": 10.99,
     "quantity": "1kg",
     "imagesrc": "assets/images/garlic.png",
-    "description": "",
+    "description":
+        "Experience the robust flavor and health benefits of fresh garlic bulbs. Our premium garlic offers aromatic richness and culinary versatility, ideal for enhancing dishes from around the globe. Elevate your cooking with our meticulously selected garlic, sourced for its superior quality and taste.",
+    "is_favourite": false,
+    "selected": 0
+  },
+  {
+    "id": 004,
+    "name": "Potatoes",
+    "Bara_name": "Red Potatoes",
+    "price": 2.99,
+    "quantity": "1kg",
+    "imagesrc": "assets/images/potatoes.png",
+    "description":
+        "Discover the humble potato, nature's versatile treasure. Our fresh, locally sourced potatoes promise premium quality and unmatched flavor. Perfect for any culinary adventure, from creamy mash to crispy fries.",
+    "is_favourite": false,
+    "selected": 0
+  },
+  {
+    "id": 005,
+    "name": "Onion",
+    "Bara_name": "Garden Picked Onions",
+    "price": 5.99,
+    "quantity": "1kg",
+    "imagesrc": "assets/images/onion.png",
+    "description":
+        "Discover the essential ingredient that adds depth to every dish. Our fresh, hand-picked onions offer superior flavor and versatility, perfect for both savory and culinary creations. Elevate your cooking with our premium onions, sourced for their quality and freshness",
     "is_favourite": false,
     "selected": 0
   },
